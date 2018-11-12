@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="shortcut icon" href="">
+  <script src="leaflet.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js">
+  </script>
+</head>
+
+<body class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container"> <a class="navbar-brand" href="#">
+        <i class="fa d-inline fa-lg fa-circle-o"></i>
+        <b> 探索香港</b>
+      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar11">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"> <a class="nav-link" href="#">拍照</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">吃饭</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">游玩</a> </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="#">注册</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">评论</a> </li>
+        </ul> <a class="btn btn-primary navbar-btn ml-md-2">Contact us</a>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center text-white" style="position: relative; overflow: hidden;"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
+      <source src="https://static.pingendo.com/video-placeholder.mp4" type="video/mp4"> </video>
+
+  <div><iframe src="https://uploads.knightlab.com/storymapjs/0caffb4bc1658ac9c088e31a96d5506e/hkuniversity/draft.html" frameborder="0" width="50%" height="580" align="left" ></iframe></div>
+    <div id="map" style="width: 600px; height: 560px; border: 1px solid #AAA; display: inline-block;"></div>
+    <br>
+    <button type="button" class="btn btn-dark" id="roll_up" onclick="show_districts();">大学分布</button>
+
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 d-flex align-items-center justify-content-center my-3"> <a href="#">
+            <i class="d-block fa fa-facebook-official text-muted fa-lg mr-2"></i>
+          </a> <a href="#">
+            <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+          </a> <a href="#">
+            <i class="d-block fa fa-google-plus-official text-muted fa-lg mx-2"></i>
+          </a> <a href="#">
+            <i class="d-block fa fa-pinterest-p text-muted fa-lg mx-2"></i>
+          </a> <a href="#">
+            <i class="d-block fa fa-reddit text-muted fa-lg mx-2"></i>
+          </a> <a href="#">
+            <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+          </a> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0">© 2014-2018 Pingendo. All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
+      maxZoom: 18,
+    })
+    var map = L.map('map').addLayer(mapboxTiles).setView([22.391856, 114.165278], 11);
+    var items = [];
+    var airtable_read_endpoint = "https://api.airtable.com/v0/appgIi4oLnDe3vGNm/%E5%9C%B0%E5%9B%BE?api_key=keyJngv7iT0m6kzo2&sortField=_createdTime&sortDirection=desc";
+    var data = [];
+    $.getJSON(airtable_read_endpoint, function(result) {
+      $.each(result.records, function(key, value) {
+        items = {};
+        items["name"] = value.fields.Name;
+        items["url"] = value.fields.url;
+        items["image_url"] = value.fields.image_url;
+        items["latitud"] = value.fields.Lat;
+        items["longitud"] = value.fields.Lng;
+        data.push(items);
+        console.log(items);
+      }); // end .each
+    }); // end getJSON
+  </script>
+  <script>
+    function show_districts() {
+      for (var i in data) {
+        var latlng = L.latLng({
+          lat: data[i].latitud,
+          lng: data[i].longitud
+        });
+        L.marker(latlng).bindPopup('<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url + '" width = "80px"><br>' + data[i].name + '</a>').addTo(map);
+      }
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>
