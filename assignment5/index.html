@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Explore University in HongKong</title>
+</head>
+
+<body>
+
+  <div>
+    <ul class="navbar">
+      <li><a href="takingphoto.html">TAKING PHOTO</a>
+      </li>
+      <li><a href="eating.html">EATING</a>
+      </li>
+      <li><a href="visiting.html">VISITING</a>
+      </li>
+      <li><a href="souvenir.html">SOUVENIR</a>
+      </li>
+      <li><a href="register.html">REGISTER HERE</a>
+      </li>
+      <li><a href="review.html">ADD REVIEW</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-71445513-6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-71445513-6');
+  </script>
+  <title>Explore University</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" <script="" src="scriptlib.js">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      background-color: #98C1F0;
+    }
+
+    h1 {
+      margin-left: 350px;
+      font-size: 50;
+      font-family: sans-serif
+    }
+
+    ul {
+      position: absolute;
+    }
+
+    ul.navbar li {
+      background: white;
+      margin: 0.5em 0;
+      padding: 0.3em;
+      border-right: 1em solid black
+    }
+    li
+    {
+    display:inline;
+    }
+    li
+{
+float:left;
+}
+a
+{
+display:block;
+width:190px;
+}
+    ul.navbar li:hover {
+      background: orange
+    }
+
+    ul.navbar a {
+      text-decoration: none
+    }
+
+    a:link {
+      color: #98C1F0
+    }
+
+    a:visited {
+      color: :purple
+    }
+    button{position:absolute; margin-left: 100px; }
+    p{font-size: 30px; margin-left:100px}
+  </style>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <p> 想知道更多香港八大院校的特别之处？</p></br>
+  <button type="button" class="btn btn-warning" id="roll_up">点此了解！</button><br>
+</br></br>
+  <div class="table-responsive">
+    <table id="table1" width="100%" class="table table-bordered"></table>
+    <table id="table2" width="100%" class="table table-bordered"></table>
+    <div id="chart"></div>
+    <script src="scriptlib2.js"></script>
+    <div align="center"><iframe class="airtable-embed" src="https://airtable.com/embed/shrJQWIT35gBKO6Aw?backgroundColor=cyan&amp;viewControls=on" frameborder="0" onmousewheel="" width="75%" height="1050" style="background: transparent; border: 0px solid #ccc;"></iframe>
+    </div>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages': ['corechart']
+      });
+      google.charts.setOnLoadCallback(drawSeriesChart);
+
+      function drawSeriesChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['ID', '游玩选择', '非本地生比例', '校园风格', '游览时长（小时）'],
+          ['CUHK', 13, 18, '自然风景', 4.5],
+          ['HKU', 11, 21, '人文特色', 3.5],
+          ['HKUST', 6, 25, '自然风景', 4],
+          ['PolyU', 7, 12, '未来设计感', 1.5],
+          ['LingnanU', 5, 9, '人文特色', 1],
+          ['CityU', 6, 14, '未来设计感', 1.5],
+          ['HKBU', 5, 13, '人文特色', 2.5],
+          ['EdU', 11, 4, '人文特色', 1.5]
+        ]);
+        var options = {
+          title: '香港八高校非本地生比例、游览时长及校园风格 ',
+          hAxis: {
+            title: '游玩选择（个）'
+          },
+          vAxis: {
+            title: '非本地生比例（%）'
+          },
+          bubble: {
+            textStyle: {
+              fontSize: 11
+            }
+          }
+        };
+        var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlevuX4GjgylfNTkTeQdNPbZQMN6IBMQ4&amp;callback=initMap" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages': ['geochart'],
+        'mapsApiKey': 'AIzaSyAlevuX4GjgylfNTkTeQdNPbZQMN6IBMQ4'
+      });
+      google.charts.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['University', '建校历史（年）', '面积（公顷）'],
+          ['HKU', 106, 53.1],
+          ['CUHK', 55, 137.7],
+          ['HKUST', 27, 60],
+          ['PolyU', 81, 9.4],
+          ['LingnanU', 23, 3.4],
+          ['CityU', 34, 15.6],
+          ['HKBU', 62, 5.7],
+          ['EdU', 21, 12.5]
+        ]);
+        var options = {
+          region: 'HK',
+          displayMode: 'markers',
+          colorAxis: {
+            colors: ['pink', 'red']
+          }
+        };
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      };
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="chart_div" style=" margin-left:250px; width: 1000px; height: 500px;"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="series_chart_div" style="margin-left:250px; width: 1000px; height: 500px; "></div>
+  </div>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>
