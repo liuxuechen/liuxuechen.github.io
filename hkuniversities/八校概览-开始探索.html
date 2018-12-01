@@ -67,7 +67,7 @@
       chart.draw(data, options);
     }
   </script>
-
+  <script type="text/javascript" scr="https://www.google.com/jsapi"></script>
   <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlevuX4GjgylfNTkTeQdNPbZQMN6IBMQ4&amp;callback=initMap" type="text/javascript"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
@@ -99,8 +99,13 @@
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
       chart.draw(data, options);
 
-    
-    };
+
+    }
+    $(window).resize(function(){
+    drawChart1();
+    drawChart2();
+  });
+
   </script>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="#">
@@ -130,10 +135,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <div id="series_chart_div" style="margin-left:0px; width: 500px; height: 400px; "></div>
+            <div id="series_chart_div" style="margin-left:0px; width: 400px; height: 400px; "></div>
           </div>
           <div class="col-md-4">
-            <div id="chart_div" style=" margin-left:0px; width: 400px; height: 400px;"></div>
+            <div id="chart_div" style=" margin-left:0px; width: 300px; height: 400px;"></div>
           </div>
         </div>
       </div>
