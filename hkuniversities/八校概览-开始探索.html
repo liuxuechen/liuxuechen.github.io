@@ -36,7 +36,16 @@
       'packages': ['corechart']
     });
     google.charts.setOnLoadCallback(drawSeriesChart);
-
+    function resize () {
+        // change dimensions if necessary
+        chart.draw(data, options);
+    }
+    if (window.addEventListener) {
+        window.addEventListener('resize', resize);
+    }
+    else {
+        window.attachEvent('onresize', resize);
+    }
     function drawSeriesChart() {
       var data = google.visualization.arrayToDataTable([
         ['ID', '游玩选择', '非本地生比例', '校园风格', '游览时长（小时）'],
@@ -126,10 +135,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <div id="series_chart_div" style="margin-left:0px; width: 770px; height: 650px; "></div>
+            <div id="series_chart_div" style="margin-left:0px; width: 770px; height: 500px; "></div>
           </div>
           <div class="col-md-4">
-            <div id="chart_div" style=" margin-left:0px; width: 400px; height: 650px;"></div>
+            <div id="chart_div" style=" margin-left:0px; width: 400px; height: 500px;"></div>
           </div>
         </div>
       </div>
