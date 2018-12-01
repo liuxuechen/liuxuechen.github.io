@@ -10,7 +10,7 @@ $(document).ready(function(){
        $.getJSON(airtable_read_endpoint, function(result) {
               $.each(result.records, function(key,value) {
                   table1_items = [];
-                      table1_items.push(value.fields.学校);
+                      table1_items.push(value.fields.學校);
 
                       table1_items.push(value.fields.特色);
   table1_items.push(value.fields.非本地生比例);
@@ -45,9 +45,9 @@ $(document).ready(function(){
          $.getJSON(airtable_read_endpoint, function(result) {
                 $.each(result.records, function(key,value) {
                     table2_items = [];
-                        table2_items.push(value.fields.学校);
-                        table2_items.push(value.fields.游玩选择);
-  
+                        table2_items.push(value.fields.學校);
+                        table2_items.push(value.fields.遊玩選擇);
+
                         table2_dataSet.push(table2_items);
                         console.log(table2_items);
                  }); // end .each
@@ -57,9 +57,9 @@ $(document).ready(function(){
                     retrieve: true,
                     ordering: false,
                     columns: [
-                        { title: "学校",
+                        { title: "學校",
                           defaultContent:""},
-                        { title: "游玩选择",
+                        { title: "遊玩選擇",
                           defaultContent:""},
 
                     ] // rmf columns
@@ -72,7 +72,7 @@ $(document).ready(function(){
                           type : 'bar'
                       },
                       bar: {
-                          title: "学校与游玩选择",
+                          title: "學校與遊玩選擇",
                       }
                   });
 
