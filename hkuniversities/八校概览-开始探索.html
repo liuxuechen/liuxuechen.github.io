@@ -3,9 +3,8 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129110922-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-129110922-3"></script>
+  <script> window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
@@ -15,10 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
-    <title>八校概覽：開始探索</title>
-</head>
-
-<body class="bg-dark">
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-71445513-6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -66,6 +63,10 @@
       var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
       chart.draw(data, options);
     }
+    $(window).resize(function() {
+      drawChart1();
+      drawChart2();
+    });
   </script>
   <script type="text/javascript" scr="https://www.google.com/jsapi"></script>
   <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlevuX4GjgylfNTkTeQdNPbZQMN6IBMQ4&amp;callback=initMap" type="text/javascript"></script>
@@ -98,15 +99,17 @@
       };
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
       chart.draw(data, options);
-
-
     }
-    $(window).resize(function(){
-    drawChart1();
-    drawChart2();
-  });
-
+    $(window).resize(function() {
+      drawSeriesChart();
+      drawMarkersMap();
+    });
   </script>
+  <title>八校概覽：開始探索</title>
+</head>
+
+<body class="bg-dark">
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="#">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
@@ -130,15 +133,14 @@
   </nav>
   <div class="text-center text-white h-100" style="position: relative; overflow: hidden;"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
       <source src="https://static.pingendo.com/video-placeholder.mp4" type="video/mp4"> </video>
-
+    <div class="container"><br>
+    </div>
     <div class="container">
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
-            <div id="series_chart_div" style="margin-left:0px; width: 400px; height: 400px; "></div>
+          <div class="col-md-5" style="">
           </div>
-          <div class="col-md-4">
-            <div id="chart_div" style=" margin-left:0px; width: 300px; height: 400px;"></div>
+          <div class="col-md-6" style="">
           </div>
         </div>
       </div>
@@ -148,6 +150,16 @@
         <div class="row">
           <div class="col-md-12 text-center">
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div id="series_chart_div" style="margin-left: 0px; width: 700px; height: 350px;" content="width=device-width, initial-scale=1"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="chart_div" style="margin-left: 0px; width: 450px; height: 300px;" content="width=device-width, initial-scale=1"></div>
         </div>
       </div>
     </div>
@@ -179,6 +191,7 @@
       </div>
     </div>
   </div>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
 </body>
 
 </html>
