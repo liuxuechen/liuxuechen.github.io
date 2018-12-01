@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-71445513-6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -64,8 +64,8 @@
       chart.draw(data, options);
     }
     $(window).resize(function() {
-      drawChart1();
-      drawChart2();
+      drawSeriesChart();
+      drawMarkersMap();
     });
   </script>
   <script type="text/javascript" scr="https://www.google.com/jsapi"></script>
@@ -156,10 +156,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div id="series_chart_div" style="margin-left: 0px; width: 700px; height: 350px;" content="width=device-width, initial-scale=1"></div>
+          <div id="series_chart_div" style="margin-left: 0px; width: 450px; height: 350px;" ></div>
         </div>
         <div class="col-md-6">
-          <div id="chart_div" style="margin-left: 0px; width: 450px; height: 300px;" content="width=device-width, initial-scale=1"></div>
+          <div id="chart_div" style="margin-left: 0px; width: 400px; height: 300px;" ></div>
         </div>
       </div>
     </div>
