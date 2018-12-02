@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-71445513-6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -68,48 +67,10 @@
       drawMarkersMap();
     });
   </script>
-  <script type="text/javascript" scr="https://www.google.com/jsapi"></script>
-  <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlevuX4GjgylfNTkTeQdNPbZQMN6IBMQ4&amp;callback=initMap" type="text/javascript"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load('current', {
-      'packages': ['geochart'],
-      'mapsApiKey': 'AIzaSyAlevuX4GjgylfNTkTeQdNPbZQMN6IBMQ4'
-    });
-    google.charts.setOnLoadCallback(drawMarkersMap);
-
-    function drawMarkersMap() {
-      var data = google.visualization.arrayToDataTable([
-        ['University', '建校历史（年）', '面积（公顷）'],
-        ['HKU', 106, 53.1],
-        ['CUHK', 55, 137.7],
-        ['HKUST', 27, 60],
-        ['PolyU', 81, 9.4],
-        ['LingnanU', 23, 3.4],
-        ['CityU', 34, 15.6],
-        ['HKBU', 62, 5.7],
-        ['EdU', 21, 12.5]
-      ]);
-      var options = {
-        region: 'HK',
-        displayMode: 'markers',
-        colorAxis: {
-          colors: ['pink', 'red']
-        }
-      };
-      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-    }
-    $(window).resize(function() {
-      drawSeriesChart();
-      drawMarkersMap();
-    });
-  </script>
   <title>八校概覽：開始探索</title>
 </head>
 
 <body class="bg-dark">
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="#">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
@@ -120,7 +81,6 @@
       <div class="collapse navbar-collapse" id="navbar11">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"> <a class="nav-link" href="八校概览-开始探索.html">開始探索</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="八校概览-各校特色.html">各校特色</a> </li>
           <li class="nav-item"> <a class="nav-link" href="八校概览-地理交通.html">地理交通</a> </li>
           <li class="nav-item"> <a class="nav-link" href="八校概览-游玩指南.html">遊玩指南</a> </li>
         </ul>
@@ -131,16 +91,18 @@
       </div>
     </div>
   </nav>
-  <div class="text-center text-white h-100" style="position: relative; overflow: hidden;"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
+  <div class="text-center text-white h-200 pb-5" style="position: relative; overflow: hidden;"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -200;">
       <source src="https://static.pingendo.com/video-placeholder.mp4" type="video/mp4"> </video>
-  <br>
+    <br>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <div id="series_chart_div" style="margin-left: -150px; width: 450px; height: 350px;" ></div>
-        </div>
-        <div class="col-md-6">
-          <div id="chart_div" style="margin-left: -150px; width: 400px; height: 350px;" ></div>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8" style="max-width:100%;max-hight:100%;"><iframe src="https://uploads.knightlab.com/storymapjs/0caffb4bc1658ac9c088e31a96d5506e/hkuniversity/index.html" frameborder="0" width="100%" height="400"></iframe></div>
+            <div class="col-md-4">
+              <div id="series_chart_div" style="margin-left: 0px; max-width:100%;height:400px;"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -172,6 +134,7 @@
       </div>
     </div>
   </div>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
 </body>
 
 </html>
