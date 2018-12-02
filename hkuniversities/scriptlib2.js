@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 
-     $("li#roll_up").click(function() {
+     $("a#roll_up").click(function() {
        var table1_items = [];
        var i = 0;
        var airtable_read_endpoint = "https://api.airtable.com/v0/appgIi4oLnDe3vGNm/%E6%A6%82%E8%A7%88?api_key=keyJngv7iT0m6kzo2";
@@ -92,7 +92,7 @@ $(document).ready(function(){
 
                       },
                       axis:{
-                       x: { label: '遊玩選擇'},
+                       x: { label: '合影點/飯堂數/遊覽點/遊玩選擇'},
                        y: {label: '數目'}
                      },
                       bar: {
