@@ -103,7 +103,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="#">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
-        <b> 八校概覽</b>
+        <b>八校概覽</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -114,9 +114,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           <li class="nav-item"> <a class="nav-link" href="八校概览-地理交通.html">地理交通</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="游校宝典.html">游校寶典</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="校园旅伴.html">尋找校園旅伴</a> </li>
-        </ul> <a class="btn btn-primary navbar-btn ml-md-2" href="主页.html">返回主頁</a>
+          <a class="btn btn-primary navbar-btn ml-md-2 text-dark" href="游校宝典.html">游校寶典</a><a class="btn btn-primary navbar-btn ml-md-2 text-dark" href="校园旅伴.html">尋找校園旅伴</a>
+        </ul> <a class="btn btn-primary navbar-btn ml-md-2 text-dark" href="主页.html">返回主頁</a>
       </div>
     </div>
   </nav>
@@ -127,14 +126,18 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
       <div class="row">
         <div class="col-md-12">
           <div class="row">
-            <div class="col-md-6">
-              <div id="map" style="width: 600px; height: 560px; border: 1px solid #AAA; display: inline-block;"></div>
+            <div class="col-md-6" style="">
+              <div id="map" style="	width: 560px;	height: 560px;	border: 1px solid #AAA;	display: inline-block;"></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 bg-light" style="">
               <div class="row">
-                <div class="col-md-12" style=""><button type="button" class="btn btn-dark mt-3" id="roll_up" onclick="show_districts();">港鐵指南</button></div>
+                <div class="col-md-12" style="	width: 555px;">
+                  <div class="row">
+                    <div class="col-md-12 bg-light" style=""><button type="button" class="btn btn-warning mt-3 m-3" id="roll_up" onclick="show_districts();">港鐵指南</button></div>
+                  </div>
+                </div>
               </div>
-              <div id="chart_div" style="	margin-left: 0px;	width: 100%;	height: 460px;" class="my-4"></div>
+              <div id="chart_div" style="	margin-left: 0px;	height: 475px;	width: 555px;" class=""></div>
             </div>
           </div>
         </div>
