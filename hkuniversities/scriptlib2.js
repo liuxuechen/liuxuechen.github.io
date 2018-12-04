@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
 
+  $('a#roll_up').click(function(){
+$(this).hide();
+})
 
      $("a#roll_up").click(function() {
        var table1_items = [];
