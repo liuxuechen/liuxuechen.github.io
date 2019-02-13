@@ -1,8 +1,4 @@
-
-# A very simple Flask Hello World app for you to get started with...
-
-
-from flask import Flask, render_template, json, request
+from flask import Flask, render_template, request, json, redirect, session
 from flask import Markup
 import requests
 
@@ -10,9 +6,15 @@ app = Flask(__name__)
 app.config["DEBUG"] = False
 
 @app.route("/")
-def main():
-    user = {"name":"Sharon"}
-    return render_template("index.html",user=user,title="Home Page")
+def index1():
+    r = requests.get('https://api.airtable.com/v0/appUnfcnf7SLuanVf/Imported%20table?api_key=keyJngv7iT0m6kzo2&sortField=_createdTime&sortDirection=desc')
+    dict = r.json()
+    dataset = []
+    for i in dict['records']:
+         dict = i['fields']
+         dataset.append(dict)
+    return render_template('index.html', entries=dataset)
+
 @app.route("/templates/about.html")
 def about():
     user = {"name":"Sharon"}
@@ -29,3 +31,7 @@ def store():
 def index():
     user = {"name":"Sharon"}
     return render_template("index.html",user=user,title="index Page")
+
+
+
+
